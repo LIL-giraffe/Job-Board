@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { techs } from '../data/jobs'
 import JobCard from "./JobCard";
 import Header from "./Header";
 
@@ -17,9 +16,7 @@ const Home = () => {
     jobData();
   }, []);
 
-  // useEffect(()=>{
-  //     cityFilter()
-  // },[jobs])
+ 
   const cityFilter = (e) => {
     if (e.target.value === "All") {
       const newJobs = jobs;
