@@ -5,4 +5,4 @@
 5. Passed props from job card to view details page using useNavigate and useLocation hooks from react-router-dom
 6. Forms submission
 7. Add few functionalities to sidebar-tbd
-8. Merge filter results-tbd
+8. Merge filter results
