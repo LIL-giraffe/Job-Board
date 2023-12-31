@@ -7,3 +7,4 @@
 7. Add few functionalities to sidebar-tbd
 8. Merge filter results
 9. Reset functionality on Filter- tbd
+10. Redux store setup, now we are fetching and storing data inside our redux store
