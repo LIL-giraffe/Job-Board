@@ -6,3 +6,4 @@
 6. Forms submission
 7. Add few functionalities to sidebar-tbd
 8. Merge filter results
+9. Reset functionality on Filter- tbd

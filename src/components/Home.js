@@ -1,20 +1,33 @@
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import JobCard from "./JobCard";
 import Header from "./Header";
+import {
+  Box,
+  Card,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+} from "@mui/material";
+import { useSelector,useDispatch } from "react-redux";
+import { getAllJobs } from "../features/jobSlice";
 
 const Home = () => {
-  const [jobs, setJobs] = useState([]);
-  
+//   const [jobs, setJobs] = useState([]);
+  const dispatch=useDispatch()
+  const data= useSelector((state)=>{
+    return state.app
+  })
 
-  const jobData = async () => {
-    const data = await fetch(" http://localhost:3031/jobs");
-    const json = await data.json();
-    setJobs(json);
-    
-  };
+//   const jobData = async () => {
+//     const data = await fetch(" http://localhost:3031/jobs");
+//     const json = await data.json();
+//     setJobs(json);
+//   };
 
   useEffect(() => {
-    jobData();
+    dispatch(getAllJobs())
   }, []);
   const [filters, setFilters] = useState({});
 
@@ -23,56 +36,73 @@ const Home = () => {
       ...currentFilters,
       [e.target.name]: e.target.value,
     }));
-  });
+  },[]);
 
   const activeFilters = Object.keys(filters).filter(
-    (filter) => filters[filter] !== 'All'
-    );
+    (filter) => filters[filter] !== "All"
+  );
 
-const filteredJobs = jobs.filter((job) => {
-  return activeFilters.every(key => job[key] === filters[key]);
-})
+  const filteredJobs = data.jobs.filter((job) => {
+    return activeFilters.every((key) => job[key] === filters[key]);
+  });
 
-//   const cityFilter = (e) => {
-//     if (e.target.value === "All") {
-//       setFilteredJobs(jobs);
-//     } else {
-//       const newJobs = jobs.filter((val) => val.location === e.target.value);
-//       setFilteredJobs(newJobs);
-//     }
-//   };
+  //   const cityFilter = (e) => {
+  //     if (e.target.value === "All") {
+  //       setFilteredJobs(jobs);
+  //     } else {
+  //       const newJobs = jobs.filter((val) => val.location === e.target.value);
+  //       setFilteredJobs(newJobs);
+  //     }
+  //   };
 
-//   const expFilter = (e) => {
-//     if (e.target.value === "All") {
-//       setFilteredJobs(jobs);
-//     } else {
-//       const newJobs = jobs.filter((val) => val.yoe === e.target.value);
-//       setFilteredJobs(newJobs);
-//     }
-//   };
+  //   const expFilter = (e) => {
+  //     if (e.target.value === "All") {
+  //       setFilteredJobs(jobs);
+  //     } else {
+  //       const newJobs = jobs.filter((val) => val.yoe === e.target.value);
+  //       setFilteredJobs(newJobs);
+  //     }
+  //   };
 
   return (
     <div>
       <Header />
-      <div>
-        <select name="location" onChange={updateFilter}>
-          <option value="All"> All</option>
-          <option value="Bengaluru">Bengaluru</option>
-          <option value="Pune">Pune</option>
-          <option value="Hyderabad">Hyderabad</option>
-          <option value="New Delhi">New Delhi</option>
-          <option value="Gurugram">Gurugram</option>
-        </select>
-      </div>
-      <div>
-        <select name="yoe" onChange={updateFilter}>
-          <option value="All">All</option>
-          <option value="Internship">Internship</option>
-          <option value="Fresher">Fresher</option>
-          <option value="Early Professional">Early Professional</option>
-          <option value="Professional">Professional</option>
-        </select>
-      </div>
+      {/* <Button onClick={()=>dispatch(getAllJobs())}>Get Jobs</Button> */}
+      <Card
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "8px",
+          padding: "12px",
+        }}
+      >
+        <Typography sx={{paddingTop:"14px", paddingRight:"20px"}}>Apply Filters</Typography>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel>Location</InputLabel>
+            <Select name="location" onChange={updateFilter}>
+              <MenuItem value="All"> All</MenuItem>
+              <MenuItem value="Bengaluru">Bengaluru</MenuItem>
+              <MenuItem value="Pune">Pune</MenuItem>
+              <MenuItem value="Hyderabad">Hyderabad</MenuItem>
+              <MenuItem value="New Delhi">New Delhi</MenuItem>
+              <MenuItem value="Gurugram">Gurugram</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel>Experience</InputLabel>
+            <Select name="yoe" onChange={updateFilter}>
+              <MenuItem value="All">All</MenuItem>
+              <MenuItem value="Internship">Internship</MenuItem>
+              <MenuItem value="Fresher">Fresher</MenuItem>
+              <MenuItem value="Early Professional">Early Professional</MenuItem>
+              <MenuItem value="Professional">Professional</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+      </Card>
       <div
         style={{
           display: "flex",
