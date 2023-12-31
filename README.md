@@ -3,6 +3,6 @@
 3. Fetched job object, stored and displayed on webpage
 4. Filtered data of job object 
 5. Passed props from job card to view details page using useNavigate and useLocation hooks from react-router-dom
-6. Forms submission-tbd
+6. Forms submission
 7. Add few functionalities to sidebar-tbd
 8. Merge filter results-tbd
