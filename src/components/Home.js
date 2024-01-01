@@ -3,6 +3,7 @@ import JobCard from "./JobCard";
 import Header from "./Header";
 import {
   Box,
+  Button,
   Card,
   FormControl,
   InputLabel,
@@ -12,6 +13,7 @@ import {
 } from "@mui/material";
 import { useSelector,useDispatch } from "react-redux";
 import { getAllJobs } from "../features/jobSlice";
+
 
 const Home = () => {
 //   const [jobs, setJobs] = useState([]);
@@ -42,9 +44,11 @@ const Home = () => {
     (filter) => filters[filter] !== "All"
   );
 
-  const filteredJobs = data.jobs.filter((job) => {
+  let filteredJobs = data.jobs.filter((job) => {
     return activeFilters.every((key) => job[key] === filters[key]);
   });
+
+  
 
   //   const cityFilter = (e) => {
   //     if (e.target.value === "All") {
@@ -72,7 +76,7 @@ const Home = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          gap: "8px",
+          gap: "20px",
           padding: "12px",
         }}
       >
@@ -102,6 +106,7 @@ const Home = () => {
             </Select>
           </FormControl>
         </Box>
+        
       </Card>
       <div
         style={{

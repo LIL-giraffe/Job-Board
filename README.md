@@ -4,7 +4,6 @@
 4. Filtered data of job object 
 5. Passed props from job card to view details page using useNavigate and useLocation hooks from react-router-dom
 6. Forms submission
-7. Add few functionalities to sidebar-tbd
+7. Add few functionalities to sidebar
 8. Merge filter results
-9. Reset functionality on Filter- tbd
-10. Redux store setup, now we are fetching and storing data inside our redux store
+9. Redux store setup, now we are fetching and storing data inside our redux store
