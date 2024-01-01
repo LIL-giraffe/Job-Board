@@ -15,17 +15,10 @@ import { getAllJobs } from "../features/jobSlice";
 
 
 const Home = () => {
-//   const [jobs, setJobs] = useState([]);
   const dispatch=useDispatch()
   const data= useSelector((state)=>{
     return state.app
   })
-
-//   const jobData = async () => {
-//     const data = await fetch(" http://localhost:3031/jobs");
-//     const json = await data.json();
-//     setJobs(json);
-//   };
 
   useEffect(() => {
     dispatch(getAllJobs())
@@ -47,30 +40,10 @@ const Home = () => {
     return activeFilters.every((key) => job[key] === filters[key]);
   });
 
-  
-
-  //   const cityFilter = (e) => {
-  //     if (e.target.value === "All") {
-  //       setFilteredJobs(jobs);
-  //     } else {
-  //       const newJobs = jobs.filter((val) => val.location === e.target.value);
-  //       setFilteredJobs(newJobs);
-  //     }
-  //   };
-
-  //   const expFilter = (e) => {
-  //     if (e.target.value === "All") {
-  //       setFilteredJobs(jobs);
-  //     } else {
-  //       const newJobs = jobs.filter((val) => val.yoe === e.target.value);
-  //       setFilteredJobs(newJobs);
-  //     }
-  //   };
 
   return (
     <div>
       <Header />
-      {/* <Button onClick={()=>dispatch(getAllJobs())}>Get Jobs</Button> */}
       <Card
         sx={{
           display: "flex",

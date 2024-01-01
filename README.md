@@ -7,3 +7,4 @@
 7. Add few functionalities to sidebar
 8. Merge filter results
 9. Redux store setup, now we are fetching and storing data inside our redux store
+10. Lazy-Loading- tbd
