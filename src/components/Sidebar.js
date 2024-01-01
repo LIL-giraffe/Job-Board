@@ -1,6 +1,5 @@
 import {
   Box,
-  Card,
   Drawer,
   IconButton,
   Typography,
@@ -16,7 +15,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Person2Icon from "@mui/icons-material/Person2";
 import InfoIcon from "@mui/icons-material/Info";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const navigate = useNavigate();

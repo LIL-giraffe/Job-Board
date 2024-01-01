@@ -3,7 +3,6 @@ import JobCard from "./JobCard";
 import Header from "./Header";
 import {
   Box,
-  Button,
   Card,
   FormControl,
   InputLabel,
@@ -30,7 +29,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllJobs())
-  }, []);
+  });
   const [filters, setFilters] = useState({});
 
   const updateFilter = useCallback((e) => {
