@@ -1,3 +1,7 @@
+
+Demo link: https://659252bddb43d40008a33271--gregarious-caramel-758b02.netlify.app/
+Please turn off any ad blocker if you have any.
+
 1. Created a home page
 2. Created a local server named as db.json into which there is job object
 3. Fetched job object, stored and displayed on webpage
@@ -8,3 +12,4 @@
 8. Merge filter results
 9. Redux store setup, now we are fetching and storing data inside our redux store
 10. Lazy-Loading- tbd
+
